@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine? 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="hearts-bg" aria-hidden="true"></div>
+
+  <!-- Screen 1: Name input -->
+  <section id="screen1" class="screen screen--active">
+    <div class="card card--slide-in">
+      <h1 class="card__title">💘 Valentine Request</h1>
+      <p class="card__subtitle">Who’s the lucky person?</p>
+      <form id="formName" class="card__form" novalidate>
+        <input
+          type="text"
+          id="inputName"
+          class="card__input"
+          placeholder="Enter their name…"
+          autocomplete="name"
+          maxlength="50"
+        />
+        <fieldset class="card__flow">
+          <legend class="card__flow-legend">Choose your flow</legend>
+          <label class="card__flow-option">
+            <input type="radio" name="flow" value="dodge" checked />
+            <span>Playful: No button runs away 😏</span>
+          </label>
+          <label class="card__flow-option">
+            <input type="radio" name="flow" value="static" />
+            <span>Gentle: No stays put, click to see reasons 💕</span>
+          </label>
+        </fieldset>
+        <button type="submit" class="btn btn--primary">Continue</button>
+      </form>
+      <p id="screen1Error" class="card__error" hidden></p>
+    </div>
+  </section>
+
+  <!-- Screen 2: Proposal -->
+  <section id="screen2" class="screen">
+    <div id="proposalCard" class="card card--slide-in">
+      <h2 id="proposalHeading" class="card__proposal">Will you be my Valentine, <span id="valentineNameDisplay"></span>? 💖</h2>
+
+      <p id="firstNoLead" class="card__reason card__reason--lead" hidden>Haww 😭 okay but listen…</p>
+      <p id="reasonText" class="card__reason" hidden></p>
+      <p id="finalMessage" class="card__final" hidden>Okayyy, I'll stop teasing 😄 Just know you'll always be my favorite person. 💖</p>
+
+      <div id="buttonsWrap" class="card__buttons">
+        <button type="button" id="btnYes" class="btn btn--yes">Yes</button>
+        <div id="noButtonContainer" class="card__no-wrap">
+          <button type="button" id="btnNo" class="btn btn--no">No</button>
+        </div>
+      </div>
+
+      <div id="restartWrap" class="card__restart" hidden>
+        <button type="button" id="btnRestart" class="btn btn--secondary">Restart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success overlay -->
+  <div id="successOverlay" class="overlay" hidden>
+    <div class="overlay__content">
+      <p id="successMessage" class="overlay__message">YAY!! 🎉 I knew you'd say yes, <span id="successName"></span>! 💖</p>
+      <button type="button" id="btnReplay" class="btn btn--primary">Replay</button>
+    </div>
+    <canvas id="confettiCanvas" class="overlay__canvas" aria-hidden="true"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
